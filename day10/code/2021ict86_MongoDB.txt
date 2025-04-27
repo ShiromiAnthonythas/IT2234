@@ -1,0 +1,172 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "regno": "2021ict86",
+  "name": "Shiromi",
+  "age": 22,
+  "degree": "IT",
+  "gpa": 3.9,
+  "skills": [
+    "JS",
+    "MongoDB",
+    "Node"
+  ],
+  "gender": "female"
+}
+
+//insert one data
+
+db.students.insertOne({
+
+ 
+  "regno": "2021ict01",
+  "name": "Krish",
+  "age": 25,
+  "degree": "CS",
+  "gpa": 4.0,
+  "skills": [
+    "Java",
+    "React",
+    "MongoDB"
+  ],
+  "gender": "male"
+})
+
+
+//insert many datas
+
+db.students.insertMany(
+[
+   
+{
+  "regno": "2021ict03",
+  "name": "Malar",
+  "age": 22,
+  "degree": "CS",
+  "gpa": 3.1,
+  "skills": [
+    "Python",
+    "MongoDB",
+    "Express"
+  ],
+  "gender": "female"
+},
+
+
+{
+ 
+  "regno": "2021ict80",
+  "name": "Ruwan",
+  "age": 23,
+  "degree": "CS",
+  "gpa": 3.7,
+  "skills": [
+    "Python",
+    "MongoDB",
+    "Express"
+  ],
+  "gender": "male"
+},
+
+{
+  "regno": "2021ict66",
+  "name": "Ambritha",
+  "age": 21,
+  "degree": "SE",
+  "gpa": 3.8,
+  "skills": [
+    "Java",
+    "React",
+    "Node"
+  ],
+  "gender": "female"
+},
+
+{
+  "regno": "2021ict75",
+  "name": "Jeeva",
+  "age": 24,
+  "degree": "IT",
+  "gpa": 3.6,
+  "skills": [
+    "C#",
+    "ASP.NET",
+    "SQL"
+  ],
+  "gender": "male"
+},
+
+{
+  "regno": "2021ict108",
+  "name": "Dinith",
+  "age": 22,
+  "degree": "CS",
+  "gpa": 4,
+  "skills": [
+    "Python",
+    "Flask",
+    "MongoDB"
+  ],
+  "gender": "male"
+}
+]
+)
+
+//projecting data using compass
+project
+{name:1,age:1,_id:0}
+
+//finding data using compass
+//type the query in the query option
+regno:"2021ict86"
+
+//finding data using mongodb shell
+db.students.find({"gender":"female"})
+
+//finding 1st data using shell
+db.students.findOne({"gender":"female"})
+
+
+//sort age using compass in ascending order
+// in sort option
+{age: 1}
+
+//sort age using compass in descending orer
+//in sort option
+{age: -1}
+
+
+//sorting data using mongodb shell
+db.students.find({"degree":"IT","gender":"female"}).sort({"age":1})
+
+
+//find greater than 20 age students using compass
+age:{$gt:20}
+
+//using shell
+db.students.find({"age":{"$gt":23}})
+
+//find student age=22 using compass 
+age:{$eq:22}
+
+//using mongodb
+db.students.find({"age":{"$eq":22}})
+
+
+//find less than 23 age students using compass
+age:{$lt:23}
+
+//using shell
+db.students.find({"age":{"$lt":22}})
+
+ //find which students know mongodb
+ 
+ {skills:{$in:['MongoDB']}}
+ 
+// java and mongodb
+{skills:{$in:['MongoDB','node']}}
+
+//student dont know mongodb
+ {skills:{$nin:['MongoDB']}}
+ 
